@@ -1,0 +1,19 @@
+version: "3.7"
+
+services:
+
+    geth:
+        build:
+            context: .
+            dockerfile: etc/docker/geth-debug.Dockerfile
+        ports:
+            - 30303:30303
+            - 8545:8545
+            - 8546:8546
+        volumes:
+            - example-geth:/root/.ethereum
+        restart: always
+
+volumes:
+    example-geth:
+        external: true
